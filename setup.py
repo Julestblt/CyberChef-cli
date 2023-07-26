@@ -7,6 +7,6 @@ setup(
     author='Your Name',
     author_email='your.email@example.com',
     description='CLI for CyberChef operations',
-    packages=find_packages(),    
+    packages=find_packages(),
     install_requires=['questionary'],
 )
