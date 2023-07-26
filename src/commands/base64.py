@@ -1,6 +1,6 @@
 import base64
 import binascii
-import questionary
+from utils.parse_args import parse_args
 
 
 def base64_encode(value: str) -> str:
@@ -20,9 +20,7 @@ command_dict = {
 }
 
 
-def base64_command():
+def base64_command(value: str = "", method: str = ""):
     print("Base64 Command")
-    command_choice = questionary.select(
-        "Choose an option:", ["Encode", "Decode"]).ask()
-    value = questionary.text("Enter the value:").ask()
+    command_choice, value = parse_args(value=value, method=method)
     print(command_dict[command_choice](value))

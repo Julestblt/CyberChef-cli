@@ -1,5 +1,5 @@
-import questionary
 import urllib.parse
+from utils.parse_args import parse_args
 
 
 def url_encode(value: str) -> str:
@@ -16,9 +16,7 @@ command_dict = {
 }
 
 
-def url_command():
+def url_command(value: str = "", method: str = ""):
     print("Url Command")
-    command_choice = questionary.select(
-        "Choose an option:", ["Encode", "Decode"]).ask()
-    value = questionary.text("Enter the value:").ask()
+    command_choice, value = parse_args(value=value, method=method)
     print(command_dict[command_choice](value))
