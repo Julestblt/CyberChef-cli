@@ -1,9 +1,11 @@
 import questionary
 import pyfiglet
 from commands.base64 import base64_command
+from commands.url import url_command
 
 options_dict = {
     "Base64": base64_command,
+    "Url": url_command,
     "Quit": exit
 }
 
