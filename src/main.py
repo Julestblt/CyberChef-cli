@@ -1,16 +1,22 @@
 import questionary
+import pyfiglet
+from commands.base64 import base64_command
+from commands.url import url_command
+
+options_dict = {
+    "Base64": base64_command,
+    "Url": url_command,
+    "Quit": exit
+}
 
 
-def ask_color():
-    color = questionary.select(
-        "What is your favorite color?",
-        choices=[
-            "Red", "Green", "Blue", "Yellow", "Other",
-        ],
-    ).ask()
-
-    print("Your favorite color is:", color)
+def main():
+    print(pyfiglet.figlet_format("CyberChef CLI", font="slant"))
+    print("=====================================")
+    selected_option = questionary.select(
+        "Choose an option:", options_dict.keys()).ask()
+    options_dict[selected_option]()
 
 
 if __name__ == "__main__":
-    ask_color()
+    main()
