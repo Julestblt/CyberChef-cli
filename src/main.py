@@ -17,7 +17,7 @@ def main():
             command()
     elif len(argv) == 1:
         selected_option = questionary.select(
-            "Choose an option:", options_dict.keys()).ask()
+            "Choose an option:", list(options_dict.keys())).ask()
         options_dict[selected_option]()
 
 
