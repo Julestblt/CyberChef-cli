@@ -20,6 +20,7 @@ command_dict = {
 
 def hex_command(value: str = "", method: str = ""):
     print("Hex Command")
+    print("=====================================")
     command_choice, value = parse_args(
         value=value, method=method, data_format="hex")
     print(command_dict[command_choice](value))

@@ -9,8 +9,6 @@ def run(args):
 
     command = hasattr(args, "command") and args.command or ""
     method = hasattr(args, "method") and args.method or ""
-    print(command, method)
-    print("=====================================")
     if command:
         cmd = command_config[command]['func']
         cmd(value=args.value or "", method=method)

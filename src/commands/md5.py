@@ -13,6 +13,7 @@ command_dict = {
 
 def md5_command(value: str = "", method: str = ""):
     print("MD5 Command")
+    print("=====================================")
     command_choice, value = parse_args(
         value=value, method=method, data_format="MD5")
     print(command_dict[command_choice](value))
