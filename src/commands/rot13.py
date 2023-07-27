@@ -18,6 +18,7 @@ command_dict = {
 
 def rot13_command(value: str = "", method: str = ""):
     print("Rot13 Command")
+    print("=====================================")
     command_choice, value = parse_args(
         value=value, method=method, data_format="r13")
     print(command_dict[command_choice](value))

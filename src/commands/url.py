@@ -18,6 +18,7 @@ command_dict = {
 
 def url_command(value: str = "", method: str = ""):
     print("Url Command")
+    print("=====================================")
     command_choice, value = parse_args(
         value=value, method=method, data_format="url")
     print(command_dict[command_choice](value))

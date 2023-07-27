@@ -7,8 +7,12 @@ def add_operation_subparser(subparsers, operation_name, operation_config):
         operation_name, help=operation_config['help'])
 
     for method in operation_config['methods']:
+        if method == 'hash':
+            method_shortcut = 'H'
+        else:
+            method_shortcut = method[0]
         operation_parser.add_argument(
-            f'--{method}', f'-{method[0]}', action='store_true', help=f'{method} {operation_name}'
+            f'--{method}', f'-{method_shortcut}', action='store_true', help=f'{method} {operation_name}'
         )
 
     operation_parser.add_argument(

@@ -1,6 +1,6 @@
 import questionary
 import pyfiglet
-from constants import options_dict, command_arg_dict
+from constants import options_dict, command_config
 
 
 def run(args):
@@ -9,9 +9,8 @@ def run(args):
 
     command = hasattr(args, "command") and args.command or ""
     method = hasattr(args, "method") and args.method or ""
-
     if command:
-        cmd = command_arg_dict[command]
+        cmd = command_config[command]['func']
         cmd(value=args.value or "", method=method)
     else:
         selected_option = questionary.select(

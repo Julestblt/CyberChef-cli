@@ -17,6 +17,7 @@ command_dict = {
 
 def binary_command(value: str = "", method: str = ""):
     print("Binary Command")
+    print("=====================================")
     command_choice, value = parse_args(
         value=value, method=method, data_format="bin")
     print(command_dict[command_choice](value))
