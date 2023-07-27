@@ -1,4 +1,5 @@
 from utils.parse_args import parse_args
+from utils.print_result import print_result
 
 
 def hex_encode(value: str) -> str:
@@ -20,7 +21,6 @@ command_dict = {
 
 def hex_command(value: str = "", method: str = ""):
     print("Hex Command")
-    print("=====================================")
     command_choice, value = parse_args(
         value=value, method=method, data_format="hex")
-    print(command_dict[command_choice](value))
+    print_result(command_dict[command_choice](value))

@@ -1,4 +1,5 @@
 from utils.parse_args import parse_args
+from utils.print_result import print_result
 
 
 def binary_encode(value: str) -> str:
@@ -17,7 +18,6 @@ command_dict = {
 
 def binary_command(value: str = "", method: str = ""):
     print("Binary Command")
-    print("=====================================")
     command_choice, value = parse_args(
         value=value, method=method, data_format="bin")
-    print(command_dict[command_choice](value))
+    print_result(command_dict[command_choice](value))
