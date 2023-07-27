@@ -1,14 +1,20 @@
 import argparse
+from constants import command_config
 
 
-def add_operation_subparser(subparsers, operation_name, help_text):
-    operation_parser = subparsers.add_parser(operation_name, help=help_text)
+def add_operation_subparser(subparsers, operation_name, operation_config):
+    operation_parser = subparsers.add_parser(
+        operation_name, help=operation_config['help'])
+
+    for method in operation_config['methods']:
+        operation_parser.add_argument(
+            f'--{method}', f'-{method[0]}', action='store_true', help=f'{method} {operation_name}'
+        )
+
     operation_parser.add_argument(
-        '-d', '--decode', action='store_true', help=f'decode {operation_name}')
-    operation_parser.add_argument(
-        '-e', '--encode', action='store_true', help=f'encode {operation_name}')
-    operation_parser.add_argument(
-        'value', nargs='?', help=f'value for {operation_name} operation')
+        'value', nargs='?', help=f'value for {operation_name} operation'
+    )
+
     return operation_parser
 
 
@@ -16,9 +22,7 @@ def create_argument_parser():
     parser = argparse.ArgumentParser(description='CyberChef CLI')
     subparsers = parser.add_subparsers(dest='command')
 
-    add_operation_subparser(subparsers, 'b64', 'base64 operations')
-    add_operation_subparser(subparsers, 'hex', 'hex operations')
-    add_operation_subparser(subparsers, 'url', 'url operations')
-    add_operation_subparser(subparsers, 'bin', 'binary operations')
+    for operation, config in command_config.items():
+        add_operation_subparser(subparsers, operation, config)
 
     return parser
