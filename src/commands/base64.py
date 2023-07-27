@@ -22,5 +22,6 @@ command_dict = {
 
 def base64_command(value: str = "", method: str = ""):
     print("Base64 Command")
-    command_choice, value = parse_args(value=value, method=method)
+    command_choice, value = parse_args(
+        value=value, method=method, data_format="b64")
     print(command_dict[command_choice](value))
