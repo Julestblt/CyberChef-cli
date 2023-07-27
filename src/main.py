@@ -9,8 +9,14 @@ def main():
         args = parser.parse_args()
 
         args.method = ""
-        if args.encode or args.decode:
-            args.method = 'decode' if args.decode else 'encode'
+
+        if hasattr(args, "encode") or hasattr(args, "decode") or hasattr(args, "hash"):
+            if hasattr(args, "encode"):
+                args.method = "encode"
+            elif hasattr(args, "decode"):
+                args.method = "decode"
+            elif hasattr(args, "hash"):
+                args.method = "hash"
 
         if args.command:
             run(args)
