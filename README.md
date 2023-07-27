@@ -10,7 +10,7 @@ pip install -r requirements.txt
 
 ## Usage
 ```bash
-python3 src/main.py [COMMAND] [-d --decode || -e --encode] [VALUE]
+python3 src/main.py [COMMAND] [-d --decode or --encode] [VALUE]
 ```
 
 ## Available Commands:
@@ -20,6 +20,7 @@ hex: Hexadecimal operations
 url: URL operations
 bin: Binary operations
 r13: Rot13 operations
+MD5: MD5 operations
 Each command supports various methods, which can be selected by -d (decode), -e (encode).
 ```
 
