@@ -1,4 +1,5 @@
 from commands.base64 import base64_command
+from commands.base32 import base32_command
 from commands.url import url_command
 from commands.hex import hex_command
 from commands.binary import binary_command
@@ -12,6 +13,11 @@ command_config = {
         'help': 'base64 operations',
         'methods': ['encode', 'decode'],
         'func': base64_command
+    },
+    'b32': {
+        'help': 'base32 operations',
+        'methods': ['encode', 'decode'],
+        'func': base32_command
     },
     'hex': {
         'help': 'hex operations',
