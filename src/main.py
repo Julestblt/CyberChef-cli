@@ -11,11 +11,11 @@ def main():
         args.method = ""
 
         if hasattr(args, "encode") or hasattr(args, "decode") or hasattr(args, "hash"):
-            if hasattr(args, "encode"):
+            if hasattr(args, "encode") and args.encode:
                 args.method = "encode"
-            elif hasattr(args, "decode"):
+            elif hasattr(args, "decode") and args.decode:
                 args.method = "decode"
-            elif hasattr(args, "hash"):
+            elif hasattr(args, "hash") and args.hash:
                 args.method = "hash"
 
         if args.command:
