@@ -16,12 +16,14 @@ python3 src/main.py [COMMAND] [-d --decode or --encode] [VALUE]
 ## Available Commands:
 ```
 b64: Base64 operations
+b32: Base32 operations
 hex: Hexadecimal operations
 url: URL operations
 bin: Binary operations
 r13: Rot13 operations
 MD5: MD5 operations
-Each command supports various methods, which can be selected by -d (decode), -e (encode).
+charcode: Charcode operations
+Each command supports various methods, which can be selected by -d (decode), -e (encode) or -H (hash).
 ```
 
 If no command or method is selected, the program will interactively ask for them. If no value is provided for the operation, the program will ask for it interactively as well.
