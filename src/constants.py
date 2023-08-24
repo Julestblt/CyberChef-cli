@@ -4,6 +4,7 @@ from commands.hex import hex_command
 from commands.binary import binary_command
 from commands.rot13 import rot13_command
 from commands.md5 import md5_command
+from commands.charcode import charcode_command
 
 
 command_config = {
@@ -37,6 +38,11 @@ command_config = {
         'methods': ['hash'],
         'func': md5_command
     },
+    'charcode': {
+        'help': 'charcode operations',
+        'methods': ['encode', 'decode'],
+        'func': charcode_command
+    }
 }
 
 options_dict = {
