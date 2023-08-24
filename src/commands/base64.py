@@ -1,17 +1,19 @@
-import base64
+from base64 import b64decode, b64encode
 import binascii
 from utils.parse_args import parse_args
 from utils.print_result import print_result
 
 
 def base64_encode(value: str) -> str:
-    return base64.b64encode(value.encode('utf-8')).decode('utf-8')
+    return b64encode(value.encode('utf-8')).decode('utf-8')
 
 
 def base64_decode(data: str) -> str:
     try:
-        return base64.b64decode(data.encode('utf-8')).decode('utf-8')
+        return b64decode(data.encode('utf-8')).decode('utf-8')
     except binascii.Error:
+        return "Invalid Base64 string"
+    except UnicodeDecodeError:
         return "Invalid Base64 string"
 
 

@@ -44,13 +44,3 @@ command_config = {
         'func': charcode_command
     }
 }
-
-options_dict = {
-    'Base64': command_config['b64']['func'],
-    'Url': command_config['url']['func'],
-    'Hex': command_config['hex']['func'],
-    'Binary':   command_config['bin']['func'],
-    'Rot13': command_config['r13']['func'],
-    'MD5': command_config['MD5']['func'],
-    'Quit': exit
-}

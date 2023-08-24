@@ -1,6 +1,6 @@
 import questionary
 import pyfiglet
-from constants import options_dict, command_config
+from constants import command_config
 
 
 def run(args):
@@ -14,5 +14,5 @@ def run(args):
         cmd(value=args.value or "", method=method)
     else:
         selected_option = questionary.select(
-            "Choose an option:", list(options_dict.keys())).ask()
-        options_dict[selected_option]()
+            "Choose an option:", list(command_config.keys())).ask()
+        command_config[selected_option]['func']()
